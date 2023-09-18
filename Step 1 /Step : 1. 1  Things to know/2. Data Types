@@ -1,0 +1,107 @@
+8 Primitive Data Types
+1. boolean type
+2. byte type
+The byte data type can have values from -128 to 127 (8-bit signed two's complement integer).
+If it's certain that the value of a variable will be within -128 to 127, then it is used instead of int to save memory.
+Default value: 0
+3. short type
+The short data type in Java can have values from -32768 to 32767 (16-bit signed two's complement integer).
+If it's certain that the value of a variable will be within -32768 and 32767, then it is used instead of other integer data types (int, long).
+Default value: 0
+
+4. int type
+The int data type can have values from -231 to 231-1 (32-bit signed two's complement integer).
+If you are using Java 8 or later, you can use an unsigned 32-bit integer. This will have a minimum value of 0 and a maximum value of 232-1. To learn more, visit How to use the unsigned integer in java 8?
+Default value: 0
+
+
+Java Data Types (Primitive)
+Java Data Types
+As the name suggests, data types specify the type of data that can be stored inside variables in Java.
+
+Java is a statically-typed language. This means that all variables must be declared before they can be used.
+
+int speed;
+Here, speed is a variable, and the data type of the variable is int.
+
+The int data type determines that the speed variable can only contain integers.
+
+There are 8 data types predefined in Java, known as primitive data types.
+
+Note: In addition to primitive data types, there are also referenced types (object type).
+
+8 Primitive Data Types
+1. boolean type
+The boolean data type has two possible values, either true or false.
+Default value: false.
+They are usually used for true/false conditions.
+Example 1: Java boolean data type
+class Main {
+  public static void main(String[] args) {
+    	
+    boolean flag = true;
+    System.out.println(flag);    // prints true
+  }
+}
+Run Code
+2. byte type
+The byte data type can have values from -128 to 127 (8-bit signed two's complement integer).
+If it's certain that the value of a variable will be within -128 to 127, then it is used instead of int to save memory.
+Default value: 0
+Example 2: Java byte data type
+class Main {
+  public static void main(String[] args) {
+
+    byte range;
+    range = 124;
+    System.out.println(range);    // prints 124
+  }
+}
+Run Code
+3. short type
+The short data type in Java can have values from -32768 to 32767 (16-bit signed two's complement integer).
+If it's certain that the value of a variable will be within -32768 and 32767, then it is used instead of other integer data types (int, long).
+Default value: 0
+Example 3: Java short data type
+class Main {
+  public static void main(String[] args) {
+    	
+    short temperature;
+    temperature = -200;
+    System.out.println(temperature);  // prints -200
+  }
+}
+Run Code
+4. int type
+The int data type can have values from -231 to 231-1 (32-bit signed two's complement integer).
+If you are using Java 8 or later, you can use an unsigned 32-bit integer. This will have a minimum value of 0 and a maximum value of 232-1. To learn more, visit How to use the unsigned integer in java 8?
+Default value: 0
+Example 4: Java int data type
+class Main {
+  public static void main(String[] args) {
+    	
+    int range = -4250000;
+    System.out.println(range);  // print -4250000
+  }
+}
+Run Code
+5. long type
+The long data type can have values from -263 to 263-1 (64-bit signed two's complement integer).
+If you are using Java 8 or later, you can use an unsigned 64-bit integer with a minimum value of 0 and a maximum value of 264-1.
+Default value: 0
+
+6. double type
+The double data type is a double-precision 64-bit floating-point.
+It should never be used for precise values such as currency.
+Default value: 0.0 (0.0d)
+
+
+7. float type
+The float data type is a single-precision 32-bit floating-point. Learn more about single-precision and double-precision floating-point if you are interested.
+It should never be used for precise values such as currency.
+Default value: 0.0 (0.0f)
+
+8. char type
+It's a 16-bit Unicode character.
+The minimum value of the char data type is '\u0000' (0) and the maximum value of the is '\uffff'.
+Default value: '\u0000'
