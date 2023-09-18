@@ -1,1 +1,2 @@
-
+Call-by-reference or pass-by-reference is not supported in Java. Java supports pass-by-value only. 
+In pass-by-value, any changes to a parameter inside the called method are not reflected outside the method's scope. In pass-by-reference, changes made to the parameters inside the method are also reflected outside
