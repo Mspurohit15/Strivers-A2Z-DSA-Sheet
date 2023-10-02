@@ -52,3 +52,148 @@ code:
             }
             System.out.println();
         }
+
+5)
+Input Format: N = 3
+Result: 
+1 2 3
+1 2
+1
+
+Input Format: N = 6
+Result:
+1 2 3 4 5 6
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2 
+1  
+
+code:   for(int i =5; i>=1;i--){
+            for(int j=1;j<=i;j++){
+                System.out.print(j+" ");
+            }
+            System.out.println("");
+            
+        }
+
+6)
+For Input: 
+5
+Your Output: 
+    *   
+   ***  
+  ***** 
+ *******
+*********
+Expected Output: 
+    *
+   ***
+  *****
+ *******
+*********
+
+code :    
+        for(int i=0;i<n;i++){
+            //space
+            for(int j=0;j<n-i-1;j++){
+                System.out.print(" ");
+            }
+            //start
+                for(int j=0;j<2*i+1;j++){
+                System.out.print("*");
+            }
+            //space
+                for(int j=0;j<n-i-1;j++){
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
+
+
+7).
+5
+Your Output: 
+*********
+ *******
+  ***** 
+   ***  
+    *   
+Expected Output: 
+*********
+ *******
+  *****
+   ***
+    *
+
+code:
+   
+        for(int i=0;i<n;i++){
+            for(int j=0;j<i;j++){
+                System.out.print(" ");
+            }
+              for(int j=0;j<2*n-(2*i+1);j++){
+                System.out.print("*");
+            }
+              for(int j=0;j<i;j++){
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
+
+8)
+Your Output: 
+
+*
+**
+***
+****
+***
+**
+*
+
+Expected Output: 
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * *
+* * *
+* *
+*
+
+code:    for(int i=1;i<=2*n-1;i++){
+            int stars=i;
+            if(i>n)stars=2*n-i;
+            for(int j=1;j<=stars;j++){
+                System.out.print("* ");
+            }
+            System.out.println("");
+        }
+
+10)
+Input: 5
+
+Output:
+1 
+0 1 
+1 0 1
+0 1 0 1 
+1 0 1 0 1
+code: 
+
+   for(int i=0;i<n;i++){
+            int stars=1;
+            if(i%2==0)stars=1;else stars=0;
+            for(int j=0;j<=i;j++){
+                System.out.print(stars+" ");
+                stars=1-stars;
+            }
+            System.out.println();
+        }
+
+11)
+
+
+
