@@ -1,3 +1,10 @@
+There are 4 general rules for solving a pattern-based question : 
+
+We always use nested loops for printing the patterns. For the outer loop, we count the number of lines/rows and loop for them.
+Next, for the inner loop, we focus on the number of columns and somehow connect them to the rows by forming a logic such that for each row we get the required number of columns to be printed.
+We print the ‘*’ inside the inner loop.
+Observe symmetry in the pattern or check if a pattern is a combination of two or more similar patterns or not.
+
 1).
 Input: 5
 
@@ -52,6 +59,34 @@ code:
             }
             System.out.println();
         }
+
+
+4)
+
+Input Format: N = 3
+Result: 
+1
+2 2 
+3 3 3
+
+Input Format: N = 6
+Result:
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+6 6 6 6 6 6
+
+Solution : 
+
+	for (int  i = 1; i <=n ; i++){
+		for( int j=1; j<=i ; j++){
+           System.out.print(i+" ");
+		}
+        System.out.println();
+	}
+    }
 
 5)
 Input Format: N = 3
