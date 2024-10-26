@@ -1,11 +1,10 @@
 1. List Interface
 Definition: A List is an ordered collection (also called a sequence). Lists can contain duplicate elements and allow positional access (indexing).
+
 Common Implementations:
 ArrayList: Dynamic array.
 LinkedList: Doubly linked list.
 Example of ArrayList:
-java
-
 
 import java.util.ArrayList;
 
@@ -34,7 +33,7 @@ public class ListExample {
     }
 }
 Example of LinkedList:
-java
+
 
 import java.util.LinkedList;
 
@@ -62,12 +61,13 @@ public class LinkedListExample {
 2. Set Interface
 Definition: A Set is a collection that does not allow duplicate elements.
 Common Implementations:
+
 HashSet: A set backed by a hash table.
 LinkedHashSet: A set that maintains the insertion order.
 TreeSet: A set that sorts the elements in natural order (or using a comparator).
+
 Example of HashSet:
-java
-Copy code
+
 import java.util.HashSet;
 
 public class HashSetExample {
@@ -89,8 +89,7 @@ public class HashSetExample {
     }
 }
 Example of TreeSet:
-java
-Copy code
+
 import java.util.TreeSet;
 
 public class TreeSetExample {
@@ -118,9 +117,9 @@ Common Implementations:
 HashMap: A hash table-based implementation of Map.
 TreeMap: A sorted Map implementation.
 LinkedHashMap: A hash map that maintains insertion order.
+
 Example of HashMap:
-java
-Copy code
+
 import java.util.HashMap;
 
 public class HashMapExample {
@@ -146,8 +145,7 @@ public class HashMapExample {
     }
 }
 Example of TreeMap:
-java
-Copy code
+
 import java.util.TreeMap;
 
 public class TreeMapExample {
@@ -172,9 +170,9 @@ Definition: A Queue is used to hold elements prior to processing and typically f
 Common Implementations:
 LinkedList: Implements Queue as well as List.
 PriorityQueue: A queue where elements are ordered according to their natural ordering or a custom comparator.
+
 Example of Queue:
-java
-Copy code
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -196,16 +194,19 @@ public class QueueExample {
         System.out.println("Next in line: " + customers.peek());
     }
 }
+
 5. Collections Utility Class
 Definition: The Collections class provides utility methods for common tasks like sorting, searching, reversing, etc.
+
 Common Methods:
 sort(List): Sorts the list.
 reverse(List): Reverses the list.
 shuffle(List): Randomizes the order of elements.
 binarySearch(List, Object): Searches for a key in a sorted list.
+
+
 Example of Collections Utility Methods:
-java
-Copy code
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -232,13 +233,14 @@ public class CollectionsExample {
 }
 6. Arrays Utility Class
 Definition: The Arrays class provides utility methods to work with arrays, such as sorting, searching, and converting arrays to lists.
+
 Common Methods:
 Arrays.toList(array): Converts an array to a list.
 Arrays.sort(array): Sorts an array.
 Arrays.binarySearch(array, key): Searches for a key in a sorted array.
+
 Example of Arrays Utility Methods:
-java
-Copy code
+
 import java.util.Arrays;
 
 public class ArraysExample {
