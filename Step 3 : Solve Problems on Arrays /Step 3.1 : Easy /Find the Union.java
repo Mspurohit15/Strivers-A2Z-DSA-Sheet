@@ -67,6 +67,73 @@ Steps:
 Insert all elements of both arrays into a set.
 Convert the set back to a sorted list.
 
+ public static List<Integer> unionUsingSet(int[] a, int[] b) {
+        Set<Integer> set = new TreeSet<>();  // TreeSet automatically sorts elements
+        
+        // Add all elements of both arrays to the set
+        for (int num : a) set.add(num);
+        for (int num : b) set.add(num);
+        
+        // Convert the set to a list
+        return new ArrayList<>(set);
+    }
+
+
+
+Time Complexity:
+Inserting elements into a TreeSet takes 𝑂(log 𝑛) for each insertion, so the overall complexity is  O((m+n)log(m+n)).
+
+Space Complexity: O(m+n) is used to store the set.
+
+
+3. Optimal Approach (Two Pointers):
+
+
+Steps:
+Initialize two pointers, one for each array.
+Compare the elements at the current positions of the two pointers.
+Insert the smaller element into the result and move the pointer. If both are equal, insert the element once and move both pointers.
+Continue until both arrays are exhausted.
+
+static ArrayList<Integer> FindUnion(int arr1[], int arr2[], int n, int m) {
+   int i = 0, j = 0; // pointers
+  ArrayList<Integer > Union=new ArrayList<>(); 
+  while (i < n && j < m) {
+    if (arr1[i] <= arr2[j]) // Case 1 and 2
+    {
+      if (Union.size() == 0 || Union.get(Union.size()-1) != arr1[i])
+        Union.add(arr1[i]);
+      i++;
+    } else // case 3
+    {
+      if (Union.size() == 0 || Union.get(Union.size()-1) != arr2[j])
+        Union.add(arr2[j]);
+      j++;
+    }
+  }
+  while (i < n) // IF any element left in arr1
+  {
+    if (Union.get(Union.size()-1) != arr1[i])
+      Union.add(arr1[i]);
+    i++;
+  }
+  while (j < m) // If any elements left in arr2
+  {
+    if (Union.get(Union.size()-1) != arr2[j])
+      Union.add(arr2[j]);
+    j++;
+  }
+  return Union;
+}
+
+
+
+
+  
+
+
+  
+
 
 
 
