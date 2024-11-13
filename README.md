@@ -89,8 +89,8 @@ Here are some resources that have been helpful in my DSA learning journey:
 ## Contact
 If you have any feedback, suggestions, or just want to discuss DSA, feel free to reach out:
 
-- GitHub: [your-username](https://github.com/Mspurohit15)
-- LinkedIn: [Your Name](https://www.linkedin.com/in/naresh-purohit-%F0%9F%87%AE%F0%9F%87%B3-5130891a8/)
+- GitHub: [Naresh Purohit](https://github.com/Mspurohit15)
+- LinkedIn: [Naresh Purohit](https://www.linkedin.com/in/naresh-purohit-%F0%9F%87%AE%F0%9F%87%B3-5130891a8/)
 
 
 
