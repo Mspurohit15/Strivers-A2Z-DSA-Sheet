@@ -1,50 +1,76 @@
-Second Largest
-Given an array arr, return the second largest element from an array. If the second largest element doesn't exist then return -1.
+# Second Largest Element
 
-Note: The second largest element should not be equal to the first largest.
+## Problem Statement
+Given an array `arr`, return the second largest element from the array. If the second largest element doesn't exist, return `-1`.
 
-Examples:
+### Note
+- The second largest element should not be equal to the first largest.
 
-Input: arr = [12, 35, 1, 10, 34, 1]
-Output: 34
-Explanation: The largest element of the array is 35 and the second largest element is 34.
-Input: arr = [10, 10]
-Output: -1
-Explanation: The largest element of the array is 10 and the second largest element does not exist..
-Constraints:
-2 ≤ arr.size() ≤ 105
-1 ≤ arr[i] ≤ 105
+### Examples
+#### Example 1:
+**Input:** 
+```plaintext
+arr = [12, 35, 1, 10, 34, 1]
+```
 
+**Output:** 
+```plaintext
+34
+```
 
-1. Brute Force Approach:
+**Explanation:** The largest element of the array is `35` and the second largest element is `34`.
+
+#### Example 2:
+**Input:** 
+```plaintext
+arr = [10, 10]
+```
+
+**Output:** 
+```plaintext
+-1
+```
+
+**Explanation:** The largest element of the array is `10`, and the second largest element does not exist.
+
+### Constraints
+- 2 ≤ `arr.size()` ≤ 10<sup>5</sup>
+- 1 ≤ `arr[i]` ≤ 10<sup>5</sup>
+
+---
+
+## Approaches
+
+### 1. Brute Force Approach
 The brute force approach involves finding the largest element first, then iterating again to find the largest element less than the maximum.
-Time Complexity: O(n + n) = O(n), where n is the size of the array.
-Space Complexity: O(1), since no additional storage is used apart from a few variables.
 
-code : 
+- **Time Complexity:** O(n + n) = O(n), where n is the size of the array.
+- **Space Complexity:** O(1), since no additional storage is used apart from a few variables.
 
-  import java.util.Scanner;
+#### Code
+```java
+import java.util.Scanner;
 
 public class SecondLargestElement {
     // Brute force approach to find the second largest element
     public static int findSecondLargestBrute(int[] arr) {
         int max = Integer.MIN_VALUE;
         int secondMax = Integer.MIN_VALUE;
-        
+
         // Find the largest element
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > max) {
                 max = arr[i];
             }
         }
-        
+
         // Find the largest element less than the maximum
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > secondMax && arr[i] < max) {
                 secondMax = arr[i];
             }
         }
-        
+
         return secondMax == Integer.MIN_VALUE ? -1 : secondMax; // If no second largest, return -1
     }
 
@@ -58,15 +84,19 @@ public class SecondLargestElement {
         System.out.println("Second Largest Element (Brute Force): " + findSecondLargestBrute(arr));
     }
 }
+```
 
+---
 
-2. Optimized Approach:
+### 2. Optimized Approach
 Instead of two separate loops, we can find both the largest and second largest in a single loop.
-Time Complexity: O(n), as we only traverse the array once.
-Space Complexity: O(1), as we're only using a few variables.
-  
 
-code : class Solution {
+- **Time Complexity:** O(n), as we only traverse the array once.
+- **Space Complexity:** O(1), as we're only using a few variables.
+
+#### Code
+```java
+class Solution {
     public int getSecondLargest(int[] arr) {
        int largeElement = arr[0];
        int secondlargestNuumber  =  -1 ;
@@ -77,18 +107,23 @@ code : class Solution {
             }else if( arr[i] < largeElement && arr[i] >secondlargestNuumber ){
                 secondlargestNuumber = arr[i];
             }
-            
+
         }
         return secondlargestNuumber;
     }
 }
+```
 
+---
 
-3. Sorting Approach:
+### 3. Sorting Approach
 Sort the array in descending order, then find the first element smaller than the largest one.
-Time Complexity: O(n log n), due to sorting the array.
-Space Complexity: O(1) (if using in-place sorting, though sorting typically involves auxiliary space).
 
+- **Time Complexity:** O(n log n), due to sorting the array.
+- **Space Complexity:** O(1) (if using in-place sorting, though sorting typically involves auxiliary space).
+
+#### Code
+```java
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -117,13 +152,20 @@ public class SecondLargestElementSorting {
         System.out.println("Second Largest Element (Sorting): " + findSecondLargestSorting(arr));
     }
 }
+```
 
-Explanation:
-Brute Force Approach: First, we find the largest element, then we iterate again to find the largest element that is smaller than the maximum. This takes O(n) for each pass, making the total time complexity O(2n) = O(n).
+---
 
-Optimized Approach: In one pass, we compare each element with both the largest and second largest. If an element is larger than the current largest, we update both the largest and second largest. If it's only larger than the second largest and not equal to the largest, we update the second largest.
+## Explanation
 
-Sorting Approach: We sort the array in ascending order and then find the first element from the end that is smaller than the largest. This is a less efficient approach due to the sorting step, which has a time complexity of O(n log n).
+### Brute Force Approach
+First, we find the largest element, then we iterate again to find the largest element that is smaller than the maximum. This takes O(n) for each pass, making the total time complexity O(2n) = O(n).
+
+### Optimized Approach
+In one pass, we compare each element with both the largest and second largest. If an element is larger than the current largest, we update both the largest and second largest. If it's only larger than the second largest and not equal to the largest, we update the second largest.
+
+### Sorting Approach
+We sort the array in ascending order and then find the first element from the end that is smaller than the largest. This is a less efficient approach due to the sorting step, which has a time complexity of O(n log n).
 
   
 
