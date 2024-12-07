@@ -1,91 +1,134 @@
-Implement Quick Sort, a Divide and Conquer algorithm, to sort an array, arr[] in ascending order. Given an array, arr[], with starting index low and ending index high, complete the functions partition() and quickSort(). Use the last element as the pivot so that all elements less than or equal to the pivot come before it, and elements greater than the pivot follow it.
+# Quick Sort Algorithm
 
-Note: The low and high are inclusive.
+## Problem Statement
+Implement Quick Sort, a Divide and Conquer algorithm, to sort an array `arr[]` in ascending order. The algorithm uses the last element as the pivot, ensuring that all elements less than or equal to the pivot come before it, and elements greater than the pivot follow it.
 
-Examples:
+## Examples
 
-Input: arr[] = [4, 1, 3, 9, 7]
-Output: [1, 3, 4, 7, 9]
-Explanation: After sorting, all elements are arranged in ascending order.
-Input: arr[] = [2, 1, 6, 10, 4, 1, 3, 9, 7]
-Output: [1, 1, 2, 3, 4, 6, 7, 9, 10]
-Explanation: Duplicate elements (1) are retained in sorted order.
-Input: arr[] = [5, 5, 5, 5]
-Output: [5, 5, 5, 5]
-Explanation: All elements are identical, so the array remains unchanged.
-Constraints:
-1 <= arr.size() <= 103
-1 <= arr[i] <= 104
+### Example 1
+**Input:** `arr[] = [4, 1, 3, 9, 7]`
+**Output:** `[1, 3, 4, 7, 9]`
+**Explanation:** After sorting, all elements are arranged in ascending order.
 
+### Example 2
+**Input:** `arr[] = [2, 1, 6, 10, 4, 1, 3, 9, 7]`
+**Output:** `[1, 1, 2, 3, 4, 6, 7, 9, 10]`
+**Explanation:** Duplicate elements (1) are retained in sorted order.
 
-Code : 
+### Example 3
+**Input:** `arr[] = [5, 5, 5, 5]`
+**Output:** `[5, 5, 5, 5]`
+**Explanation:** All elements are identical, so the array remains unchanged.
 
+## Constraints
+- 1 <= arr.size() <= 10³
+- 1 <= arr[i] <= 10⁴
+
+## Algorithm Overview
+
+Quick Sort is a Divide and Conquer algorithm that works by:
+1. Selecting a 'pivot' element from the array
+2. Partitioning the array around the pivot
+3. Recursively sorting the sub-arrays
+
+### Key Functions
+
+1. **`quickSort()`**:
+   - Recursively divides the array
+   - Calls the `partition()` function
+   - Sorts sub-arrays independently
+
+2. **`partition()`**:
+   - Chooses a pivot element (typically the first or last element)
+   - Rearranges the array so that:
+     - Elements smaller than the pivot are moved before it
+     - Elements larger than the pivot are moved after it
+
+## Implementation 1 (Array-based)
+
+```java
 class Solution {
-    // Function to sort an array using quick sort algorithm.
+    // Main Quick Sort function
     static void quickSort(int arr[], int low, int high) {
-        if( low < high){
-            int partitionIndex = partition (arr, low , high);
-            quickSort(arr, low ,partitionIndex - 1 );
+        if (low < high) {
+            // Partition the array
+            int partitionIndex = partition(arr, low, high);
+            
+            // Recursively sort left and right sub-arrays
+            quickSort(arr, low, partitionIndex - 1);
             quickSort(arr, partitionIndex + 1, high);
         }
     }
 
+    // Partition function
     static int partition(int arr[], int low, int high) {
-        // your code here
+        // Choose the first element as pivot
         int pivot = arr[low];
         int i = low;
         int j = high;
         
-        while( i < j){
-            while( arr[i] <= pivot && i <= high - 1){
+        while (i < j) {
+            // Find element larger than pivot from left
+            while (arr[i] <= pivot && i <= high - 1) {
                 i++;
             }
             
-             while( arr[j] >  pivot && j >= low + 1){
+            // Find element smaller than pivot from right
+            while (arr[j] > pivot && j >= low + 1) {
                 j--;
             }
             
-            if(i< j ) {
+            // Swap elements if indices haven't crossed
+            if (i < j) {
                 int temp = arr[i];
                 arr[i] = arr[j];
-                arr[j] = temp ;
-                
+                arr[j] = temp;
             }
         }
-          int temp = arr[low];
-                arr[low] = arr[j];
-                arr[j] = temp ;
-        return j;
         
+        // Place pivot in correct position
+        int temp = arr[low];
+        arr[low] = arr[j];
+        arr[j] = temp;
+        
+        return j;
     }
 }
+```
 
+## Implementation 2 (List-based)
 
-code : 1 
-
-  class Solution {
+```java
+class Solution {
     static int partition(List<Integer> arr, int low, int high) {
         int pivot = arr.get(low);
         int i = low;
         int j = high;
 
         while (i < j) {
+            // Find element larger than pivot from left
             while (arr.get(i) <= pivot && i <= high - 1) {
                 i++;
             }
 
+            // Find element smaller than pivot from right
             while (arr.get(j) > pivot && j >= low + 1) {
                 j--;
             }
+
+            // Swap elements if indices haven't crossed
             if (i < j) {
                 int temp = arr.get(i);
                 arr.set(i, arr.get(j));
                 arr.set(j, temp);
             }
         }
+
+        // Place pivot in correct position
         int temp = arr.get(low);
         arr.set(low, arr.get(j));
         arr.set(j, temp);
+
         return j;
     }
 
@@ -96,59 +139,83 @@ code : 1
             qs(arr, pIndex + 1, high);
         }
     }
+
     public static List<Integer> quickSort(List<Integer> arr) {
-        // Write your code here.
         qs(arr, 0, arr.size() - 1);
         return arr;
     }
 }
+```
 
-public class tUf {
-    public static void main(String args[]) {
-        List<Integer> arr = new ArrayList<>();
-        arr = Arrays.asList(new Integer[] {4, 6, 2, 5, 7, 9, 1, 3});
+## Example Usage
+
+```java
+public class QuickSortDemo {
+    public static void main(String[] args) {
+        List<Integer> arr = Arrays.asList(4, 6, 2, 5, 7, 9, 1, 3);
         int n = arr.size();
-        System.out.println("Before Using insertion Sort: ");
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr.get(i) + " ");
+
+        System.out.println("Before Quick Sort: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
         }
-        System.out.println();
+
         arr = Solution.quickSort(arr);
-        System.out.println("After insertion sort: ");
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr.get(i) + " ");
+
+        System.out.println("\nAfter Quick Sort: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
         }
-        System.out.println();
     }
+}
+```
 
-} 
+## Complexity Analysis
 
+### Time Complexity
+- **Best Case:** O(N log N)
+  - Occurs when pivot divides array into roughly equal halves
+- **Average Case:** O(N log N)
+  - Typical scenario with random distribution
+- **Worst Case:** O(N²)
+  - Occurs when array is already sorted or reverse sorted
 
-Time Complexity: O(N*logN), where N = size of the array.
+### Space Complexity
+- **O(1)** auxiliary space
+- **O(N)** recursive call stack space
 
-Reason: At each step, we divide the whole array, for that logN and n steps are taken for partition() function, so overall time complexity will be N*logN.
+## Recurrence Relation
+`F(n) = F(k) + F(n-1-k)`
+- `k`: number of elements smaller or equal to pivot
+- `n-1-k`: number of elements greater than pivot
 
-The following recurrence relation can be written for Quick sort : 
+## Pivot Selection Strategies
+1. First element
+2. Last element
+3. Middle element
+4. Random element
+5. Median-of-three
 
-F(n) = F(k) + F(n-1-k) 
+## Advantages
+- In-place sorting
+- Good cache locality
+- Efficient for large datasets
+- Average time complexity of O(N log N)
 
-Here k is the number of elements smaller or equal to the pivot and n-1-k denotes elements greater than the pivot.
+## Disadvantages
+- Unstable sorting algorithm
+- Poor performance on already sorted arrays
+- Worst-case time complexity of O(N²)
 
-There can be 2 cases :
+## When to Use
+- Large, unsorted datasets
+- Memory-constrained environments
+- When average-case performance is crucial
 
-Worst Case – This case occurs when the pivot is the greatest or smallest element of the array. If the partition is done and the last element is the pivot, then the worst case would be either in the increasing order of the array or in the decreasing order of the array. 
+## Optimization Techniques
+- Randomized pivot selection
+- Switching to insertion sort for small subarrays
+- Three-way partitioning for arrays with many duplicates
 
-Recurrence:
-F(n) = F(0)+F(n-1)  or  F(n) = F(n-1) + F(0) 
-
-Worst Case Time complexity: O(n2) 
-
-Best Case – This case occurs when the pivot is the middle element or near to middle element of the array.
-Recurrence :
-F(n) = 2F(n/2)
-
-Time Complexity for the best and average case: O(N*logN)
-
-Space Complexity: O(1) + O(N) auxiliary stack space.
 
 
